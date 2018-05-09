@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour {
+public class CameraFollow : MonoBehaviour
+{
 
     public GameObject followObject;
-    private Vector3 offset; 
+    private Vector3 offset;
+    public float scrollSpeed = 4f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
         offset = transform.position - followObject.transform.position;
     }
@@ -17,5 +20,16 @@ public class CameraFollow : MonoBehaviour {
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         transform.position = followObject.transform.position + offset;
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+
+            offset -= transform.forward * scrollSpeed;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+
+            offset += transform.forward * scrollSpeed;
+        }
     }
 }
