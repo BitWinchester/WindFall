@@ -24,7 +24,7 @@ public class Interact : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
 
-        
+
         ///Need to change this from being hard coded to E to a "Interact" Key binding 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -32,8 +32,13 @@ public class Interact : MonoBehaviour
             ///to pick isnt decided right now
             if (other.gameObject.GetComponent<Item>() && inventory.HeldItem == null)
             {
+               
                 GameObject go = other.gameObject;
-                go.transform.parent = this.gameObject.transform;
+                go.transform.parent = go.gameObject.GetComponent<Item>().heldLocation.gameObject.transform;
+                go.transform.localPosition = Vector3.zero;
+                go.transform.localRotation = Quaternion.identity;
+               
+
                 SphereCollider collider = go.gameObject.GetComponent<SphereCollider>();
                 collider.enabled = false;
 
@@ -42,6 +47,6 @@ public class Interact : MonoBehaviour
         }
     }
 
-   
+
 
 }

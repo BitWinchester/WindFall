@@ -5,8 +5,8 @@ using UnityEngine;
 public class ScriptableObjectItem : ScriptableObject
 {
     public new string name;
-    public string description; 
-
+    public string description;
+    public GameObject heldLocation;
 
 	
 		

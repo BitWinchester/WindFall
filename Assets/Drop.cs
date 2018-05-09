@@ -29,6 +29,8 @@ public class Drop : MonoBehaviour
                 // Finally set the held item slot to null so its empty 
                 inventory.HeldItem.gameObject.transform.parent = null;
                 SphereCollider collider = inventory.HeldItem.gameObject.GetComponent<SphereCollider>();
+              //inventory.HeldItem.GetComponent<Rigidbody>().isKinematic = true;
+              //  inventory.HeldItem.GetComponent<Rigidbody>().detectCollisions = true;
                 collider.enabled = true;
                 inventory.HeldItem = null;
             }

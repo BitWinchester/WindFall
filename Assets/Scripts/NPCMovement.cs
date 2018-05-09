@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCMovement : MonoBehaviour
+public class NPCMovement : MonoBehaviour, IMoveable
 {
 
     public float wanderRadius;
@@ -21,6 +21,11 @@ public class NPCMovement : MonoBehaviour
 
 
     void Update()
+    {
+        Move();
+    }
+
+    public void Move()
     {
         timer += Time.deltaTime;
 

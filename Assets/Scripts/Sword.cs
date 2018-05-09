@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Sword : Item {
 
+   
+
     public override void Use()
     {
         print("Do this SWORD CODE!");

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pick Axe
   description: Might fine for hitting stone
+  heldLocation: {fileID: 100004, guid: fcf204e9a9396c54f820f954b7cb39c9, type: 3}
