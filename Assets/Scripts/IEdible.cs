@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMoveable {
+public interface IEdible
+{
+     void Eat(GameObject eatenObject);
 
-    
-    void Move(Vector3 moveLocation);
-
-	
-	
-	
 }

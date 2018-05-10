@@ -32,12 +32,16 @@ public class Interact : MonoBehaviour
             ///to pick isnt decided right now
             if (other.gameObject.GetComponent<Item>() && inventory.HeldItem == null)
             {
-               
+
                 GameObject go = other.gameObject;
-                go.transform.parent = go.gameObject.GetComponent<Item>().heldLocation.gameObject.transform;
+                if (go.gameObject.GetComponent<Item>().heldLocation != null)
+                {
+                    go.transform.parent = go.gameObject.GetComponent<Item>().heldLocation.gameObject.transform;
+
+                }
                 go.transform.localPosition = Vector3.zero;
                 go.transform.localRotation = Quaternion.identity;
-               
+
 
                 SphereCollider collider = go.gameObject.GetComponent<SphereCollider>();
                 collider.enabled = false;

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCMovement : MonoBehaviour, IMoveable
+public class NPCMovement : MonoBehaviour
 {
+
+
 
     public float wanderRadius;
     public float wanderTimer;
