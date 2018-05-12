@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Camera myCamera;
+    //camerContainer is used to make an orbit camera , holding the camera but placed right on top of the player 
+    public Transform cameraContainer;
     public float speed = 6.0F;
     public float rotationSpeed = 10f;
     public float jumpSpeed = 8.0F;
@@ -13,11 +15,13 @@ public class PlayerMovement : MonoBehaviour
     public bool isDebugMode;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
+    public bool isAimingMode = false;  
 
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        myCamera = FindObjectOfType<Camera>();
     }
 
     void Update()
@@ -26,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if (controller.isGrounded)
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
+            moveDirection = cameraContainer.TransformDirection(moveDirection);
             moveDirection *= speed;
 
             Turning();
@@ -41,10 +45,11 @@ public class PlayerMovement : MonoBehaviour
         if (isDebugMode)
             Debug.DrawLine(this.transform.position, new Vector3(this.transform.position.normalized.x, 0, 0) * 1);
 
-
+        
+        
     }
 
-    void MouseLookTurning()
+    public void MouseLookTurning()
     {
         Ray camRay = myCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -63,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void TurnToFaceMoveDirection()
+   public void TurnToFaceMoveDirection()
     {
         if (moveDirection != Vector3.zero)
         {
@@ -78,10 +83,12 @@ public class PlayerMovement : MonoBehaviour
         //Turning is based on holding down a key ( though of as aiming) 
         if (Input.GetMouseButton(1))
         {
+            isAimingMode = true;
             MouseLookTurning();
         }
         else
         {
+            isAimingMode = false;
             TurnToFaceMoveDirection();
         }
     }

@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 114437524308965034}
   - component: {fileID: 114369201470807656}
   - component: {fileID: 135638581821981810}
-  - component: {fileID: 54243931476585172}
   - component: {fileID: 114231947349812646}
+  - component: {fileID: 114701958691860840}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -122,7 +122,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970417605750846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.06}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481166362029220}
@@ -148,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032330210585336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.52, y: -0.24, z: 2}
+  m_LocalPosition: {x: -0.2, y: -0.24, z: 36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4765862792387548}
@@ -327,21 +327,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1329984445338130}
   m_Mesh: {fileID: 4300000, guid: fcf204e9a9396c54f820f954b7cb39c9, type: 3}
---- !u!54 &54243931476585172
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1032330210585336}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!114 &114231947349812646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -375,10 +360,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8d96276fd626241827cc09b02c9bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCamera: {fileID: 0}
   speed: 6
   rotationSpeed: 10
   jumpSpeed: 8
   gravity: 20
+  isDebugMode: 0
+  isAimingMode: 0
 --- !u!114 &114437524308965034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -390,6 +378,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7671e9942f1a91a429b8d4a7ebeeb685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114701958691860840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032330210585336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ecb8aff39a59b4f99f18169d1e5dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: 
+  rHandSlot: {fileID: 4102539364446570}
+  lHandSlot: {fileID: 4709379526612440}
+  headSlot: {fileID: 0}
+  torsoSlot: {fileID: 4967928093237638}
 --- !u!114 &114748109474172526
 MonoBehaviour:
   m_ObjectHideFlags: 1
