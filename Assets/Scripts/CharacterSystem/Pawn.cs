@@ -37,12 +37,7 @@ public class Pawn : MonoBehaviour, IMoveable
     }
 
 
-    void OnGUI()
-    {
-        if (GUI.Button(new Rect(10, 70, 50, 30), "Eat"))
-            Eat();
 
-    }
 
     protected bool pathComplete()
     {
@@ -64,21 +59,25 @@ public class Pawn : MonoBehaviour, IMoveable
 
     IEnumerator MoveAndEat(GameObject target)
     {
+
+
+
         while (Vector3.Distance(agent.transform.position, target.transform.position) > 1f)
 
         {
-
-
             yield return new WaitForSeconds(.1f);
         }
-
         print("Reached the target.");
         if (food != null)
         {
             food.GetComponent<Food>().Eat(food);
+
         }
 
+
+
     }
+
 }
 
 
