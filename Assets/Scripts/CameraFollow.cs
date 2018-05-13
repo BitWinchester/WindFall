@@ -37,11 +37,11 @@ public class CameraFollow : MonoBehaviour
 
         if (Input.GetMouseButton(2))
         {
-         //  cameraContainer.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * scrollSpeed, 0), Space.World);
 
             cameraContainer.Rotate(0f, Input.GetAxis("Mouse X") * scrollSpeed, 0f, Space.World);
+            ///Add this line back in if you want the camera to pan up and down
            // cameraContainer.Rotate(-Input.GetAxis("Mouse Y") * scrollSpeed, 0f, 0f, Space.Self);
-        
+
         }
     }
 }
